@@ -1,6 +1,11 @@
 // Import express
 const express = require("express");
+const { get } = require("mongoose");
+const cors=require('cors')
 const app = express();
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 
 // Middleware to parse JSON request body
 app.use(express.json());
@@ -61,3 +66,10 @@ const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
+
+// Live Api Url
+// get=>https://basic-crud-operaion-express.onrender.com/users
+// post=>https://basic-crud-operaion-express.onrender.com/users=>Parameter required
+// put=>https://basic-crud-operaion-express.onrender.com/users/:id=>Parmeter required
+// delete=>https://basic-crud-operaion-express.onrender.com/users/:id=>Parameter required
